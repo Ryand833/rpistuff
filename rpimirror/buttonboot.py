@@ -28,7 +28,7 @@ def doreboot(image):
     rcode = p.returncode
     os.system('reboot')
 
-while False:
+while True:
     if GPIO.input(gpio_buttona) == GPIO.HIGH:
         doreboot(img_a)
         break

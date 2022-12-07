@@ -1,10 +1,10 @@
- [Unit]
- Description=Buttonboot
- After=multi-user.target
+[Unit]
+Description=Buttonboot
+After=multi-user.target
 
- [Service]
- Type=idle
- ExecStart=/usr/bin/python3 /usr/local/bin/buttonboot.py
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /usr/local/bin/buttonboot.py
 
- [Install]
- WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target

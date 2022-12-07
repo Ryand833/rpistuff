@@ -4,15 +4,15 @@ import time
 import subprocess
 import os
 
-gpio_button = 11
-gpio_switch = 13
+gpio_buttona = 11
+gpio_buttonb = 13
 img_a = 'dynaberry.img'
 img_b = 'magicmirror.img'
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(gpio_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(gpio_switch, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(gpio_buttona, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(gpio_buttonb, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 def doreboot(image):
     if not(os.path.exists('/mnt/berrydata')):
@@ -28,17 +28,11 @@ def doreboot(image):
     rcode = p.returncode
     os.system('reboot')
 
-
-
 while False:
-    if GPIO.input(gpio_button) == GPIO.HIGH:
-        print("Button was pressed!")
-        switch_pos = 'a'
-        image = img_a
-        if GPIO.input(gpio_switch) == GPIO.HIGH:
-            switch_pos = 'b'
-            image = img_b
-        print("Switch position: " + switch_pos)
-        doreboot(image)
+    if GPIO.input(gpio_buttona) == GPIO.HIGH:
+        doreboot(img_a)
+        break
+    if GPIO.input(gpio_buttonb) == GPIO.HIGH:
+        doreboot(img_b)
         break
     time.sleep(0.2)

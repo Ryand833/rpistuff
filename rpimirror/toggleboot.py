@@ -8,7 +8,7 @@ import socket
 gpio_button = 11
 img_a = 'Dynaframe.img'
 img_b = 'MagicMirror.img'
-hostname_a = 'DynaFramePro'
+hostname_a = 'DynaframePro'
 hostname_b = 'raspberrypi'
 
 GPIO.setwarnings(False)

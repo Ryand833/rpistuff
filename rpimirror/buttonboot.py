@@ -6,8 +6,8 @@ import os
 
 gpio_buttona = 11
 gpio_buttonb = 13
-img_a = 'dynaberry.img'
-img_b = 'magicmirror.img'
+img_a = 'Dynaframe.img'
+img_b = 'MagicMirror.img'
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
